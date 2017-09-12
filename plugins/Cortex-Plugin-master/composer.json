@@ -1,0 +1,31 @@
+{
+    "name": "brain/cortex-plugin",
+    "description": "Cortex is a plugin that implements a routing system in WordPress.",
+    "type": "wordpress-plugin",
+    "keywords": ["wordpress"],
+    "homepage": "https://github.com/Brain-WP/Cortex-Plugin",
+    "license": "GPL-2.0+",
+    "authors": [
+        {
+            "name": "Giuseppe Mazzapica",
+            "email": "giuseppe.mazzapica@gmail.com",
+            "homepage": "http://gm.zoomlab.it",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.4",
+        "brain/brain": "~0.1.0",
+        "brain/support": "~0.1.0",
+        "brain/amygdala": "~0.1.0",
+        "brain/striatum": "~0.1.0",
+        "symfony/routing": "2.*",
+        "brain/cortex": "~0.1.0",
+        "composer/installers": "~1.0"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "optimize-autoloader": true
+    }
+}

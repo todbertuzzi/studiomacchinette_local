@@ -8,8 +8,7 @@ dump.sql
 /wflogs
 /sitemap.*
 /languages
-/plugins
-
+*.sql.gz
 *.sql
 # Hidden files
 *.DS_Store

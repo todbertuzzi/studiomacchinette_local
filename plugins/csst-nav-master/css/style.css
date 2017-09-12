@@ -1,0 +1,112 @@
+/**
+ * Our plugin styles.
+ *
+ * This provides some really minimal styling in order to help visualize things
+ * like :hover status, click handlers, nesting, show/hide, etc. 
+ *
+ * @package WordPress
+ * @subpackage CSST_Nav
+ * @since CSST Nav 1.0
+ */
+
+/**
+ * Table of Contents
+ *
+ * 1.0. Nav Links.
+ * 2.0. Submenus.
+ * 3.0. Show/Hide.
+ * 4.0. Toggle Icons.
+ */
+
+/**
+ * 1.0. Nav Links.
+ */
+
+	/**
+	 * In our example, we're doing vertical menu items.  Could just as easily
+	 * float or flexbox these instead.
+	 */
+	.csst_nav_walker-item { display: block; }
+
+	/**
+	 * Defeat the typography styles that ship with twentyfifteen.
+	 */
+	a.csst_nav_walker-item-link {
+		border: none;
+		font-weight: 600;
+	}
+
+	/**
+	 * State effects for our nav links.
+	 */
+	a.csst_nav_walker-item-text_link:hover,
+	a.csst_nav_walker-item-text_link:active,
+	a.csst_nav_walker-item-text_link:focus { text-decoration: underline; }
+
+/**
+ * 2.0. Submenus.
+ */
+
+ 	/**
+ 	 * A bit of whitespace on the left to suggest nesting.
+ 	 */
+	.csst_nav_walker-submenu { margin-left: 2em; }
+
+/**
+ * 3.0. Show/Hide.
+ */
+
+	/**
+	 * As a Show/Hide element, whether you're currently showing or hiding,
+	 * it will be helpful to have these values.
+	 */
+	.csst_nav_walker-hide,
+	.csst_nav_walker-show {
+		display: block;
+		overflow: hidden;
+	}
+
+	/**
+	 * The hidden state.
+	 *
+	 * 1. Unlike height, max-height would allow us to animate the height,
+	 *    if we wanted to.
+	 * 2. We'll fade the submenus in.
+	 */
+	.csst_nav_walker-hide {
+		max-height: 0; /* 1 */
+		opacity: 0;    /* 2 */
+	}
+
+	/**
+	 * The revealed state.
+	 *
+	 * 1. Fade the submenu in.
+	 * 2. Allow it to be as tall as it needs to be.
+	 */
+	.csst_nav_walker-show {
+		transition: opacity .5s ease-in; /* 1 */
+		max-height: auto;                /* 2 */
+	}
+
+
+/**
+ * 4.0. Toggle Icons.
+ */
+
+ 	/* Set up the icon to animate upon toggle. */
+	.csst_nav_svg-icon {
+		height: .7em;
+		width: .7em;
+		margin: 0 .4em;
+		vertical-align: -.15em;
+		transform-origin: 40% 40%;
+		transition: transform .5s ease-in-out;
+	}
+
+	/* When the menu is open, rotate the triangle to point up. */
+	.csst_nav_walker-item-toggle_link-open .csst_nav_svg-icon { transform: rotate( -180deg ); }
+
+	/* Some state styles for the icon. */
+ 	.csst_nav_svg-icon:hover,
+	.csst_nav_svg-icon:focus { opacity: .5; }
