@@ -1,0 +1,18 @@
+
+dump.sql
+# Keep these files out of the repo
+/themes/twenty*
+/upgrade
+/uploads
+/themes
+/wflogs
+/sitemap.*
+/languages
+/plugins
+
+*.sql
+# Hidden files
+*.DS_Store
+*Thumbs.db
+*.sass-cache*
+*~imageoptim*
