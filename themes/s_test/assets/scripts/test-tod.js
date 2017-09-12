@@ -198,7 +198,6 @@ function animate() {
     //jQuery('.studio-logo').velocity({ opacity: 1 }, { duration: 0, delay: 0 , ease:'easeOutQuad'} );
     //jQuery('.macchinette-logo').velocity({ opacity: 1 }, { duration: 0, delay: 0 , ease:'easeOutQuad'} );
     //jQuery('.barre').velocity({ opacity: 1}, {duration: 0, delay: 0});
-        
   } 
 
 
