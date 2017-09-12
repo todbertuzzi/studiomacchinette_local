@@ -1,0 +1,244 @@
+
+
+// SLIDE MENU > navbar
+.nav-slide{
+  height: 80px;
+}
+
+
+.nav-slide .navbar-header{
+  width: 100%;
+  text-align: center;
+}
+
+.nav-slide .navbar-brand{
+  float: none;
+    display: inline-block;    /* float: left; */
+}
+
+.navbar-collapse .icon-bar:nth-child(1){
+  margin-top: 10px;
+}
+
+
+
+.sliding-panel-content:before {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 240px;
+}
+
+.sliding-panel-content {
+  $action-color: $brand-primary !default;
+  $dark-gray: #333 !default;
+  $sliding-panel-border-color: $dark-gray;
+ // $sliding-panel-background: lighten($sliding-panel-border-color, 5%);
+   $sliding-panel-background: #000;
+  $sliding-panel-color: #fff;
+  $sliding-panel-border: 1px solid $sliding-panel-border-color;
+  $sliding-panel-background-hover: $action-color;
+  $sliding-panel-color-hover: #fff;
+  $sliding-panel-background-focus: lighten($sliding-panel-background, 5%);
+  padding-left: 0;  
+
+  @include position(fixed, 0 auto 0 0);
+  @include borboun_size(220px 100%);
+  @include border-color(null white null null);
+  @include border-width(null 20px null null);
+  background: $sliding-panel-background;
+  -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
+  transform: translateX(-220px);
+  transition: all 0.25s linear;
+  z-index: 99999999;
+
+  ul {
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  li a {
+    border-bottom: $sliding-panel-border;
+    color: $sliding-panel-color;
+    display: block;
+    font-weight: bold;
+    padding: 1em;
+    text-decoration: none;
+     font-family: $secondary-font;
+    &:focus {
+      background-color: $sliding-panel-background-focus;
+    }
+
+    &:hover {
+      background-color: $sliding-panel-background-hover;
+      color: $sliding-panel-color-hover;
+    }
+  }
+
+  &.is-visible {
+    transform: translateX(0);
+  }
+}
+
+.sliding-panel-fade-screen {
+  @include position(fixed, 0);
+  background: black;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+  visibility: hidden;
+  z-index: 999998;
+
+  &.is-visible {
+    opacity: 0.4;
+    visibility: visible;
+  }
+}
+
+
+
+.labelHamburger{
+    display: inline-block;
+    float: left;
+    margin-top: 30px;
+    left: -51px;
+    position: relative;
+    @include transition(left 0.3s ease-out 0s);
+    font-weight: 700;    
+     font-family: $secondary-font;
+}
+
+.sliding-panel-button:hover + .labelHamburger{
+  left: 10px;
+}
+ 
+.nav-slide .container-fluid{
+  //padding-left: 0;
+ // padding-right: 0;
+  margin-right: 0;
+  margin-left: 0;
+}
+
+
+// BASED ON A PEN BY Ian Haggerty
+
+$width: 50px; $height: 50px;
+$background: #333;
+$border: solid $background;
+$box-shadow: 0 0 $width/5 $width/-20 #eee;
+$line-border: solid #eee;
+
+.sliding-panel-button{
+ position: relative;
+  display: inline-block;
+  margin-top: 14px;
+  z-index: 9999998;
+  line-height: $height/4;
+  width: $width; height: $height;
+  border-left: $width/10 $border;
+  border-right: $width/10 $border;
+  border-top: $height/10 $border;
+  border-bottom: $height/10 $border;
+  border-radius: 10%;
+  background: $background;
+  box-shadow: $box-shadow;
+  cursor: pointer;
+  transition: .5s;
+  float: left;
+  
+
+
+  .line {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    
+    width: 80%;
+    border-top: $height/10 $line-border;
+    
+    transition: .5s ease;
+    
+    &:first-child {
+      transform: translateY($height/20);
+    }
+    &:last-child {
+      transform: translateY($height/-20);
+    }
+  }
+}
+
+.sliding-panel-button {
+  .line {
+    transform-origin: 100% 50%;
+  }
+  
+  &:hover {
+    .line:first-child, .line:last-child {
+      width: 50%;
+    }
+    .line:first-child {
+      transform: translateY($height/4 + $height/40) rotateZ(45deg);
+    }
+    .line:last-child {
+      transform: translateY($height/-4 + $height/-40) rotateZ(-45deg);
+    }
+    .line:nth-child(2) {
+      width: 50%;
+    }
+  }
+}
+
+// BASED ON CODE BY Jesse Couch
+
+
+.sliding-panel-button.open {
+ @include border-left-radius(0px);
+}
+
+.sliding-panel-button.open .line:nth-child(1) {
+ opacity: 0;
+  @include transition(all 0.2s ease-in-out);
+}
+
+.sliding-panel-button.open .line:nth-child(2) {
+@include transform(rotate(45deg));
+  top: 10px;
+  left: -5px;
+  width: 110%;
+  @include transition(all 0.2s ease-in-out);
+}
+
+.sliding-panel-button.open .line:nth-child(3) {
+ 
+  @include transform(rotate(-45deg));
+      top: -24px;
+    left: -4px;
+    width: 110%;
+    @include transition(all 0.2s ease-in-out);
+    
+}
+
+/*
+// SUB MENU
+.dropdown-menu{
+  width: 100%;
+}
+
+.dropdown-menu li{
+  height: 30px;
+  background-color: #ccc;
+}
+.sliding-panel-content .dropdown-menu  li a{
+  height: 30px;
+  background-color: #ccc;
+  padding-top: .5em;
+  padding-bottom:.5em; 
+
+}
+*/

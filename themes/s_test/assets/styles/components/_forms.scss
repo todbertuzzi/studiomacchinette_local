@@ -1,0 +1,179 @@
+// Search form
+.search-form {
+  @extend .form-inline;
+}
+.search-form label {
+  font-weight: normal;
+  @extend .form-group;
+}
+.search-form .search-field {
+  @extend .form-control;
+}
+.search-form .search-submit {
+  @extend .btn;
+  @extend .btn-default;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+.wpcf7-form-control-wrap:hover+.input__label {
+    font-family:  $main-font;;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.wpcf7-validation-errors {
+    border: 2px solid #d94f5c !important;
+    color: #000 !important;
+    font-family:  $main-font;;
+    text-transform: uppercase;
+}
+
+span.wpcf7-not-valid-tip {
+    color: #d94f5c !important;
+    font-size: 1em;
+    font-family:  $main-font;; 
+    display: block;
+    text-transform: uppercase;
+    display: none !important;
+}
+
+
+p.formTopLabel {
+    color: #888 !important;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+/* Juro  Forms*/
+
+
+
+.input__field {
+	z-index: 10;
+	padding: 0.75em 0.1em 0.25em;
+	width: 100%;
+	/*background: transparent;
+	color: #afb3b8;*/
+	background-color: #eee;
+    color: #000;
+}
+
+.input__label {
+	position: relative;
+	overflow: hidden;
+	padding: 0;
+	width: 100%;
+	olor: #dadada !important;
+	text-align: left;
+}
+
+.input__label::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 7px;
+	background: #dadada;
+	-webkit-transform: scale3d(1, 0.4, 1);
+	transform: scale3d(1, 0.4, 1);
+	-webkit-transform-origin: 50% 100%;
+	transform-origin: 50% 100%;
+	-webkit-transition: -webkit-transform 0.3s, background-color 0.3s;
+	transition: transform 0.3s, background-color 0.3s;
+	-webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+	transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.input__label::after {
+	content: attr(data-content);
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 0.75em 0.15em;
+	color: #000;
+	opacity: 0;
+	-webkit-transform: translate3d(0, 50%, 0);
+	transform: translate3d(0, 50%, 0);
+	-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+	transition: opacity 0.3s, transform 0.3s;
+	-webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+	transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+	pointer-events: none;
+}
+
+.wpcf7-form-control-wrap:hover + .input__label::before {
+	background-color: #000;
+	-webkit-transform: scale3d(1, 1, 1);
+	transform: scale3d(1, 1, 1);
+}
+
+.wpcf7-form-control-wrap:hover + .input__label {
+	pointer-events: none;
+}
+
+.wpcf7-form-control-wrap:hover + .input__label::after {
+	opacity: 1;
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+}
+
+.input__label-content {
+	padding: 0.75em 0.15em;
+	-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+	transition: opacity 0.3s, transform 0.3s;
+	-webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+	transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+    line-height: 35px;    	
+}
+
+.wpcf7-form-control-wrap:hover + .input__label .input__label-content {
+	opacity: 0;
+	-webkit-transform: translate3d(0, -50%, 0);
+	transform: translate3d(0, -50%, 0);
+}
+
+.wpcf7-not-valid-tip ~ .input__field{
+	position: relative;
+	top: 20px;
+}
+.wpcf7-not-valid-tip{
+	position: relative;
+	top: -20px;
+}
+
+.input input{
+   border:none
+}
+
+.input__label-content{
+	 text-transform: uppercase;
+     font-family:  $main-font;;
+}
+
+.input textarea {
+    border-color: #ccc;
+    border-width: 3px;
+}
+
+
+.post-password-form {
+    padding-top: 100px;
+    text-align: center;
+}
+.messaggioPassword {
+    line-height: 20px;
+    text-transform: uppercase;
+     font-family:  $main-font;;
+    font-style: normal;
+    font-weight: 400;
+    display: block;
+    color: $brand-primary;
+}
+
+   

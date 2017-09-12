@@ -1,0 +1,150 @@
+
+.chisiamo_baloon{
+  text-align: center;
+}
+
+.chisiamo_form, .chisiamo_dove, .chisiamo_divider{
+  margin-left: 80px;
+}
+
+.chisiamo_dove{
+  & p{
+     font-family: $main-font;
+    font-size: 15px;
+  }
+  & strong{
+    text-decoration: underline;
+  }
+}
+
+.chisiamo_p{
+  margin-left: 80px;
+  margin-right: 80px;
+
+  & p{
+    font-family: $main-font;
+    font-size: 15px;
+  //  text-align: justify;
+  } 
+}
+
+.header_chisiamo {
+  margin-left: 80px;
+  margin-right: 80px;
+  text-align: left;
+  margin-top: -50px;
+  max-height: 120px;  
+
+  & .fl-html{
+    max-height: 120px;  
+  }
+
+  & h3{
+    margin-bottom: 0;
+    font-size: 30px;
+    word-spacing: 100px;
+    font-family: $main-font;
+  }
+
+  & svg{
+      position: relative;
+      left: 162px;
+      top: -59px;
+  }
+
+   & svg path{
+     // fill: $brand-primary;
+  }
+
+  & hr{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 1px solid #000;
+    //width: 82%;
+    position: relative;
+    top: -118px;
+    //left: -10%;
+    }
+
+}
+
+@media (max-width: $screen-xs) and  (min-width: 320px) {
+   .chisiamo_p,  .chisiamo_form, .chisiamo_dove, .chisiamo_divider{
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+   .header_chisiamo{
+     margin-left: 40px;
+    margin-right: 40px;
+   }
+
+   .wrap.container-fluid{
+    overflow-x: hidden;
+   }
+
+   .btnInvio{
+    margin-left: 0;
+    margin-right: 0;
+   }
+ 
+}
+
+@media (max-width: $screen-sm) and  (min-width: $screen-xs) {
+
+  .header_chisiamo{
+    
+      &  svg {
+        left: 225px;
+      }
+
+       &  hr{
+        left: 0;
+        width: 100%;
+    }
+  }
+
+  
+}
+
+@media (max-width: $screen-md) and  (min-width: $screen-sm) {
+  .chisiamo_p,  .chisiamo_form, .chisiamo_dove, .chisiamo_divider{
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+
+
+  .header_chisiamo{
+      margin-left: 40px;
+      margin-right: 40px;
+
+      &  svg {
+        left: 125px;
+      }
+
+       &  hr{
+        left: -28px;
+        width: 72%;
+    }
+  }
+
+  
+}
+@media (max-width: $screen-lg) and  (min-width: $screen-md){
+  .chisiamo_p, .chisiamo_form, .chisiamo_dove, .chisiamo_divider{
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+
+  .header_chisiamo{
+      margin-left: 40px;
+      margin-right: 40px;
+
+      &  svg {
+        left: 135px;
+      }
+  }
+
+}
+
+

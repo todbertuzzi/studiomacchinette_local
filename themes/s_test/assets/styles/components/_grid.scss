@@ -1,0 +1,30 @@
+// Grid system
+.main {
+  @include make-sm-column($main-sm-columns);
+  .sidebar-primary & {
+   // LEVATO PERCHE CON IL SIDE PANEL REFILL FLOAT A SIX
+    @include make-sm-column($main-sm-columns - $sidebar-sm-columns);
+  }
+    margin-bottom: 40px;  
+}
+
+.sidebar {
+  @include make-sm-column($sidebar-sm-columns);
+}
+
+
+$break-small: 480px;
+
+// Container fluid padding custom
+.container-fluid{
+	padding-left: 10px;
+    padding-right: 10px;
+    max-width: 1400px;
+    @media screen and (max-width:$break-small) {
+    	padding-left: 10px;
+   		padding-right: 10px;
+ 	}
+}
+
+
+

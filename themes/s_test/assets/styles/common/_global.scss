@@ -1,0 +1,123 @@
+ // Add/remove floats
+.float-right {
+  float: right;
+}
+.float-left {
+  float: left;
+}
+.float-none {
+  float: none;
+}
+.clear {
+  clear: both;
+}
+// Text alignment
+.text-left {
+  text-align: left;
+}
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+// Apply capital case to an element
+.caps {
+  text-transform: uppercase;
+}
+
+
+@mixin rounded($radius: 0.5em) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+
+.fl-rich-text p, .fl-accordion-content {
+  font-size: 18px;
+}
+
+.fl-rich-text h2{
+    font-size: 40px;
+    font-weight: 800;
+    margin-bottom: 0;
+}
+
+
+.fl-rich-text h3{
+  text-align: left;
+  text-transform: uppercase;
+  margin-top: 0;
+ span{
+      font-size: 22px !important;
+ }
+}
+
+h2, h3,.fl-rich-text p, .fl-accordion-button-label, .fl-accordion-content{
+  font-family: $main-font;
+}
+
+
+p {
+   & strong{
+      color: $brand-primary;
+    }
+}
+
+/* Custom styles */
+
+.corner-ribbon.sticky{
+  position: fixed;
+}
+
+.corner-ribbon.shadow{
+  box-shadow: 0 0 3px rgba(0,0,0,.3);
+}
+
+/* Different positions */
+
+.ribbonHolder{
+  height: 0;
+}
+
+.corner-ribbon.top-right{
+    top: -45px;
+    left: 37%;
+    right: 0;
+    position: relative;
+    height: 100px;
+    z-index: 999;
+}
+.corner-ribbon.top-right svg{
+transform: rotateZ(-10deg);
+}
+
+$altezza-header:165px;
+.post-type-archive-progetti .wrap.container-fluid  {
+   min-height: 600px;
+   min-height: calc(100vh - #{$altezza-header});
+}
+
+
+.selettore-lingua {
+    position: absolute;
+    right: 20px;
+}
+
+.selettore-lingua ul {
+    list-style: none;
+    text-align: right;
+}
+.selettore-lingua ul li a {
+    background-color: #000;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding: 10px;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 10px;
+}
+.selettore-lingua img {
+    display: none;
+}

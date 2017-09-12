@@ -1,0 +1,13 @@
+.navbar,.page-header{
+	//display: none !important;
+}
+
+.navbar-brand>img {
+    display: block;
+    max-width: 200px;
+}
+
+.menu-container li a {
+    font-family: $main-font;
+    text-transform: uppercase;
+}

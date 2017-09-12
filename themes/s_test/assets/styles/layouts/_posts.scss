@@ -1,0 +1,291 @@
+
+.frameProgettiThumb{
+  position: absolute;
+    top: 0;
+    left: 0;
+}
+
+ svg line.top_pt,  svg line.bottom_pt {
+    stroke-dasharray: 0 235;
+    transform: translateX(-300px);
+    stroke-width: 2;
+    stroke:#000;
+}
+
+
+
+ svg line.left_pt,  svg line.right_pt {
+    stroke-dasharray: 0 150;
+    transform: translateY(210px);
+    stroke-width: 2;
+    stroke:#000;
+}
+
+   
+
+.progetto.item {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 5px;
+  margin-right: 5px;
+
+  & h3{
+    position: absolute;
+    left: 10px;
+    top: 77%;    
+    background: $brand-primary;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    z-index: 9999;
+    color: #fff;
+    font-family: $main-font;
+    font-size: 18px;
+    transition: 0.5s;
+
+  }
+
+  & img{
+    padding: 5px;
+    background-color: rgba(250, 28, 49, 0.0);
+    transition: 0.5s;
+     border-radius: 10px
+
+  }
+}
+
+.progetto.item:hover {
+  & img{
+      border-radius: 0;
+   background-color: rgba(250, 28, 48, 1);
+  transition: 0.5s;
+  transform: scale(0.9);
+  -moz-transform: scale(0.9);
+  -webkit-transform: scale(0.9);
+  -o-transform: scale(0.9);
+  -ms-transform: scale(0.9); /* IE 9 */
+  -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=1.5, M12=0, M21=0, M22=1.5, SizingMethod='auto expand')"; /* IE8 */
+   filter: progid:DXImageTransform.Microsoft.Matrix(M11=1.5, M12=0, M21=0, M22=1.5, SizingMethod='auto expand'); /* IE6 and 7 */ 
+  
+  }
+
+  & h3{
+     background:#000;
+     transition: 0.5s;
+     left:20px; 
+     top:0;
+  }
+
+  & line.top_pt,  svg line.bottom_pt, line.left_pt,  svg line.right_pt {
+    stroke:$brand-primary;
+    transition: 0.5s;
+  }
+
+  & svg line.top_pt,  svg line.bottom_pt {
+    stroke-dasharray: 330 235;
+    transition: 0.5s;
+  }
+
+  & svg line.left_pt,  svg line.right_pt {
+    stroke-dasharray: 46 150;
+    transition: 0.5s;
+  }
+}
+
+
+/* SINGLE PORTFOLIO  */
+
+.single-image-rounded img{
+  @include rounded(1em);
+}
+
+.progetti-svg-dx{
+  position: relative;
+  float: right;
+  top: -150px;
+}
+
+.progetti-svg-ps{
+   position: relative;
+  float: right;
+  top: -170px;
+  & svg {
+    height: 300px;
+    width: 300px;
+  }
+}
+
+.p_prj{
+	max-width: 1024px;
+  margin: 1em auto;
+  position: relative;
+  z-index: 1;
+}
+
+.p_prj p{
+    //text-shadow: 0 1px 0px #ccd2c7,     1px 0 0px #e1e1e1,     1px 2px 1px #CCD2C1,     2px 1px 1px #e1e1e1,     2px 3px 2px #ccd2c7;
+    font-size: 16px;
+    font-family: $main-font;
+    padding-left: 10px;
+
+}
+
+.p_prj p::after {
+  content: "";
+  background: url(image.jpg);
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;   
+  @include background-image( linear-gradient(to left, #FFF, #F4F5F7) );
+}
+
+.titolo_scheda h3{
+background-color: $brand-primary;
+    color: #FFF;
+    padding-left: 10px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    font-family: $secondary-font;
+        display: inline;
+    padding-right: 10px;
+     font-size: 20px;   
+     @include border-right-radius(10px);
+    @include border-bottom-radius(10px); 
+ }
+
+ .titolo_scheda h6{
+  text-decoration: underline;
+   font-family: $main-font;
+ }
+
+.p_prja .fl-rich-text p{
+	position: absolute;
+    top: 1em;
+    left: -4%;
+    font: 1.2em/1.5 $main-font;
+    color: #fcfcef;
+
+
+
+}
+.p_prja .fl-rich-text p:after{
+     content: "";
+    position: absolute;
+    width: 115%;
+    height: 110%;
+    background: rgba(0,0,0,.9);
+    box-shadow: -1px -2px 1px rgba(0,50,100,.4);
+    left: -5px;
+    z-index: -1;
+    top:0;
+}
+
+.lista_icon_scheda{
+  max-width: 50%;
+}
+
+.lista_icon_scheda.holder_width_full{
+    max-width: 100%;
+}
+
+
+
+.lista_icon_scheda{
+  float: left;
+}
+.item_scehda_2{
+  float: none;
+}
+
+.lista_icon_scheda .icon_scheda {
+    float: left;
+    font-size: 60px;
+    vertical-align: middle;
+    margin-right: 25px;
+    left: 10px;
+    top: 10px;
+    position: relative;
+    color: #fff;
+}
+.popup_scheda {
+    float: left;
+    width: 80%;
+    padding: 10px;
+    border-radius: 6px;
+    color: #FFF;
+    position: relative;
+    font-size: 14px;
+    line-height: 18px;
+    font-family: $main-font;
+
+  
+}
+
+
+  $texture-top-background: darken(#fff, 1%);
+  $texture-bottom-background: lighten(#fff, 10%);
+
+
+.holderBoxScheda, .holderBoxScheda_alt{
+    display: flex;
+    // @include texture(90deg, $texture-top-background, $texture-bottom-background, 87, 0); 
+}
+
+
+
+
+.popup_scheda p{
+    color: #000;
+    font-size: 15px;
+    font-family: $main-font;
+ }   
+
+.popup_scheda.item_scehda_2{
+	
+}
+
+.popup_scheda.item_scehda_2 p{
+    transform: perspective(34em) rotateY(8deg) rotateX(-6deg);
+    font-size: 15px;
+ }
+.popup_scheda h4{
+    background-color: #fff;
+    color: #000;
+    font-weight: 600;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 3px;
+    margin-top: 7px;
+    width: auto;
+    display: inline-block;
+    margin-left: 10px;
+   font-family: $main-font;
+   font-size: 24px;
+ }
+
+.popup_scheda:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-right: 6px solid #000;
+    position: absolute;
+    top: 25px;
+    left: 0;
+}
+
+.holderBoxScheda_alt svg ,.holderBoxScheda svg {
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    width: 100px;
+    height: 100px; 
+}
+

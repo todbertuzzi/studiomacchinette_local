@@ -1,0 +1,6 @@
+<svg id="frameSpiegoneMobile" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="360px" height="100%">
+              <line class="top" x1="0" y1="0" x2="360" y2="0" style="stroke:rgb(0,0,0)"></line>
+              <line class="left" x1="0" y1="100%" x2="0" y2="-100%" style="stroke:rgb(0,0,0)"></line>
+              <line class="bottom" x1="0" y1="100%" x2="360" y2="100%" style="stroke:rgb(0,0,0)"></line>
+              <line class="right" x1="360" y1="0" x2="360" y2="100%" style="stroke:rgb(0,0,0)"></line>
+            </svg>

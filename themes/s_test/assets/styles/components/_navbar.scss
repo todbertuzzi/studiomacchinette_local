@@ -1,0 +1,112 @@
+#menu-menu-dx li.current_page_item , #menu-menu-dx li.current-menu-item {
+    background-color: #333;
+    @include border-right-radius(10px);
+	@include border-bottom-radius(10px);
+ //   max-width: 150px;
+}
+
+#menu-menu-sx li.current_page_item, #menu-menu-sx li.current-menu-item {
+    background-color: #333;
+    @include border-left-radius(10px);
+	@include border-top-radius(10px);
+	@include border-right-radius(0px);
+	@include border-bottom-radius(10px);
+	
+ //   max-width: 150px;
+}
+
+
+
+li.current_page_item a , li.current-menu-item a {
+    color: #fff !important;
+   // padding: 5px !important;
+   padding-top: 5px;
+   padding-bottom: 5px;
+}
+
+@media (max-width: ($grid-float-breakpoint-max - 1px)){
+	.menu-center{
+		display: none;
+	}
+
+	 .navbar.navbar-default.navbar-static-top{
+	 	min-height: 90px;
+	 	& .navbar-header{
+	 		min-height: 90px;
+	 		text-align: center;
+	 		
+	 		& .logo-mobile{
+	 			margin-left: 60px;
+	 			display: inline-block;
+			} 
+
+	 	}
+	 }
+	 .holderLogoOverlay{
+	 	//display: none;
+	 }
+}
+
+@media (min-width: $grid-float-breakpoint-max){
+
+	.menu-center{
+		display: inline-block;
+	    margin: 0 3vW;
+	    position: relative;
+	    text-align: center;
+	}
+
+	#menu-menu-sx.nav-sx{
+		
+	    text-align: left;
+	}
+	#menu-menu-dx.nav-dx{
+	
+	    text-align: right;
+	}
+
+	#menu-menu-sx li{
+		text-align: right;
+	}
+	#menu-menu-dx li{
+		text-align: left;
+	}
+
+	.menu-container{
+		display: block;
+	    margin: 0;
+	    padding: 0;
+	    text-align: center;
+	}
+	
+	#menu-menu-sx.nav-sx,#menu-menu-dx.nav-dx{
+		display: inline-flex;
+	    width: calc(50% - 280px);
+	    float: none;
+	    margin: 7.5px -7px;    
+	}
+
+
+	#menu-menu-sx.nav-sx>li,#menu-menu-dx.nav-dx>li {
+	    /* float: left; */
+	    display: inline-block;
+	    flex-grow: 1;
+	}
+
+}
+
+@media (min-width: $grid-float-breakpoint-max){
+   header.navbar .logo-mobile {
+    display: none;
+  }
+}
+
+
+.navbar-default{
+	background-color: #fff;
+
+}
+.navbar>.container-fluid .navbar-brand, .navbar>.container .navbar-brand{
+	margin-left: 0;
+}
+

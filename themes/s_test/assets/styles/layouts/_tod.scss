@@ -1,0 +1,692 @@
+
+
+.navbar-default .navbar-nav>li>a:hover{
+// TEST BOURBON
+//@include background-image( linear-gradient(to left, #FFF, #F4F5F7) ); 
+//TEST scut
+//@include scut-circle(2em, #F4F5F7);
+// TEST BOURBON SIZE
+//@include borboun_size(2em 2em); // width: 2em; height: 2em;
+}
+
+
+.animsition-overlay-slide {
+      background-color: #ffcc00;
+    }
+
+
+.fl-module-content{
+	margin-left: 0;
+	margin-right: 0;
+}
+
+
+/*  VARS GENERALI  */
+
+$primary-color-portfolio: #d94f5c;
+$contrast-color-portfolio: #ffffff;
+
+$listaStili_porfolio: bubba romeo marley milo steve;
+
+$listaStili_pubblicazioni: goliath;
+
+$listaStili_comune: goliath bubba romeo marley steve milo;
+
+
+
+/*  STILI CUSTOM MODULE HEADING       */
+
+.portfolio_row .fl-module-heading .fl-heading .fl-heading-text{
+	text-transform: uppercase;
+	font-weight: 300;
+	color:$primary-color-portfolio;
+}
+
+
+
+
+/*  STILI CUSTOM MODULE PORTFOLIO       */
+
+/* Common style */
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"] figure{
+	float: left;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.fl-module-content .fl-post-grid {
+	margin-left: 0;
+}
+
+@each $stile in $listaStili_pubblicazioni {
+  .fl-module-post-grid .fl-module-content [class*="fl-post-"].#{$stile} figure{
+     position: relative;
+	float: left;
+	overflow: hidden;
+	/*margin: 10px 1%;
+	min-width: 320px;*/
+	/*max-width: 300px;*/
+	max-height: 578px;
+	/*width: 48%;*/
+	text-align: center;
+	//cursor: pointer;
+  }
+}
+
+@each $stile in $listaStili_porfolio {
+  .fl-module-post-grid .fl-module-content [class*="fl-post-"].#{$stile} figure{
+     position: relative;
+	float: left;
+	overflow: hidden;
+	/*margin: 10px 1%;
+	min-width: 320px;*/
+	max-width: 300px;
+	max-height: 210px;
+	/*width: 48%;*/
+	background: #3085a3;
+	text-align: center;
+	cursor: pointer;
+  }
+}
+
+@each $stile in $listaStili_comune {
+
+  .fl-module-post-grid .fl-module-content [class*="fl-post-"].#{$stile} .fl-post-grid-text a{
+    	color: $contrast-color-portfolio;
+  }
+
+  .fl-module-post-grid .fl-module-content [class*="fl-post-"].#{$stile} figure img{
+	    position: relative;
+		display: block;
+		min-height: 100%;
+		max-width: 100%;
+		opacity: 1;
+  }
+
+  .fl-module-post-grid .fl-module-content [class*="fl-post-"].#{$stile} figure figcaption{
+	  padding: 2em;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 1.25em;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+  }
+
+  .fl-module-post-grid .fl-module-content [class*="fl-post-"].#{$stile} figure figcaption::before,
+  .fl-module-post-grid .fl-module-content [class*="fl-post-"].#{$stile} figure figcaption::after{	
+ 	 pointer-events: none;
+  }
+
+
+
+  .fl-module-post-grid .fl-module-content [class*="fl-post-"].#{$stile} figure figcaption,
+  .fl-module-post-grid .fl-module-content [class*="fl-post-"].#{$stile} figure figcaption > a{
+  	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	font-weight: 600;
+    color: #fff;
+  }
+	/* Anchor will cover the whole item by default */
+	/* For some effects it will show as a button */
+	.fl-module-post-grid .fl-module-content [class*="fl-post-"].#{$stile} figure figcaption > a{
+		z-index: 1000;
+		text-indent: 200%;
+		white-space: nowrap;
+		font-size: 0;
+		opacity: 0;
+	}
+
+	.fl-module-post-grid .fl-module-content [class*="fl-post-"].#{$stile} figure h2 {
+		word-spacing: -0.15em;
+		font-weight: 600;
+	}
+	.fl-module-post-grid .fl-module-content [class*="fl-post-"].#{$stile} h2 a{
+		color:#fff;
+	}
+
+	.fl-module-post-grid .fl-module-content [class*="fl-post-"].#{$stile} figure h2 span{
+		font-weight: 800;
+	}
+
+	.fl-module-post-grid .fl-module-content [class*="fl-post-"].#{$stile} figure h2,
+	.fl-module-post-grid .fl-module-content [class*="fl-post-"].#{$stile} figure p{
+		margin: 0;
+	}
+
+	.fl-module-post-grid .fl-module-content [class*="fl-post-"].#{$stile} figure p {
+		letter-spacing: 1px;
+		font-size: 68.5%;
+	}
+}
+
+
+/* Individual effects */
+
+
+/*-----------------*/
+/***** Goliath *****/
+/*-----------------*/
+
+
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].goliath figure figcaption{
+	padding-left: 0;
+    padding-right: 0;
+
+    position: absolute;
+    top: 40%;
+    left: 0;
+    width: 100%;
+    height: auto; 
+    font-weight: 600;
+    color: #fff;
+
+   -webkit-transform: translate3d(0,200px,0);
+	transform: translate3d(0,200px,0);
+	-webkit-transition:  -webkit-transform 0.25s;
+	transition: transform 0.25s;
+}
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].goliath figure:hover figcaption{
+ -webkit-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);
+	-webkit-transition:  -webkit-transform 0.35s;
+	transition: transform 0.35s;
+}
+
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].goliath  figure {
+	background: #df4e4e;
+}
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].goliath figure img,
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].goliath figure h2 {
+	-webkit-transition: -webkit-transform 0.35s;
+	transition: transform 0.35s;
+
+}
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].goliath figure h2 {
+	opacity: 0;
+	margin-bottom: 5px;
+}
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].goliath figure img {
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].goliath figure h2,
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].goliath figure p {
+	/*position: absolute;*/
+	bottom: 0;
+	left: 0;
+	padding: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+    background: #000;	
+}
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].goliath figure p {
+	text-transform: none;
+	font-size: 90%;
+	opacity: 0;
+	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	transition: opacity 0.35s, transform 0.35s;
+	/*-webkit-transform: translate3d(0,50px,0);
+	transform: translate3d(0,50px,0);*/
+}
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].goliath figure:hover img {
+	//-webkit-transform: translate3d(0,-80px,0);
+	//transform: translate3d(0,-100px,0);
+	transition: transform 0.35s;
+	opacity: 0.3;	
+	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	transition: opacity 0.35s, transform 0.35s;
+}
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].goliath figure:hover h2 {
+	/*-webkit-transform: translate3d(0,-100px,0);
+	transform: translate3d(0,-30px,0);*/
+	transition: transform 0.35s;
+	opacity: 1;	
+	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	transition: opacity 0.35s, transform 0.35s;
+}
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].goliath figure:hover p {
+	opacity: 1;
+	/*-webkit-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);*/
+}
+
+
+/*---------------*/
+/***** Marley *****/
+/*---------------*/
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].marley  figure figcaption {
+	text-align: right;
+}
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].marley  figure h2,
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].marley  figure p {
+	position: absolute;
+	right: 30px;
+	left: 30px;
+	padding: 10px 0;
+	
+}
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].marley  figure p {
+	background-color:rgba($primary-color-portfolio, 1);
+	padding-right: 10px;
+}
+
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].marley  figure p {
+	bottom: 30px;
+	line-height: 1.5;
+	-webkit-transform: translate3d(0,100%,0);
+	transform: translate3d(0,100%,0);
+}
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].marley figure h2 {
+	top: 30px;
+	-webkit-transition: -webkit-transform 0.35s;
+	transition: transform 0.35s;
+	-webkit-transform: translate3d(0,20px,0);
+	transform: translate3d(0,20px,0);
+}
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].marley figure h2 a {
+	color:rgba($contrast-color-portfolio, 1);
+	background-color:rgba($contrast-color-portfolio, 0);
+	padding-right: 10px;
+	padding-left: 10px;	
+	
+/*
+	-webkit-transition: color 0.35s , -webkit-transform 0.35s, 3s;
+	transition: color 0.35s, transform 0.35s, 3s;
+
+	-webkit-transition: background-color 0.35s, -webkit-transform 0.35s, 0s;
+	transition: background-color  0.35s, transform 0.35s, 0s;
+	*/
+	transition-property: color, background-color, ;
+  	transition-duration: 0.5s, 0.3s;
+  	transition-delay: 0s, 0s;
+
+	
+}
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].marley figure:hover h2 a {
+	color:rgba($primary-color-portfolio, 1);
+	background-color:rgba($contrast-color-portfolio, 1);
+	padding-right: 10px;
+	padding-left: 10px;	
+
+	transition-property: color, background-color, ;
+  	transition-duration: 0.5s, 0.3s;
+  	transition-delay: 0.5s, 0s;
+
+}
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].marley  figure:hover h2 {
+	-webkit-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);
+}
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].marley  figure h2::after {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 100%;
+	height: 4px;
+	background: #fff;
+	content: '';
+	-webkit-transform: translate3d(0,40px,0);
+	transform: translate3d(0,40px,0);
+}
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].marley  figure h2::after,
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].marley  figure p {
+	opacity: 0;
+	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	transition: opacity 0.35s, transform 0.35s;
+}
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].marley  figure:hover h2::after,
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].marley  figure:hover p {
+	opacity: 1;
+	-webkit-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);
+}
+
+/*---------------*/
+/***** Bubba *****/
+/*---------------*/
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].bubba figure {
+	/*background: #d94f5c;*/
+    background-color: rgba($primary-color-portfolio, 1);	
+  
+}
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].bubba figure img {
+	opacity: 1;
+	-webkit-transition: opacity 0.35s;
+	transition: opacity 0.35s;
+}
+
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].bubba figure h2 a {
+    background-color: rgba($primary-color-portfolio,1);
+    padding-left: 10px;
+    padding-right: 10px;
+    -webkit-transition: background-color 0.35s;
+	transition: background-color 0.35s;
+}
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].bubba figure:hover h2 a {
+    background-color: rgba($primary-color-portfolio,0);
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].bubba figure:hover img {
+	opacity: 0.4;
+	 background-color: rgba($primary-color-portfolio, .8);	
+}
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].bubba figure figcaption::before,
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].bubba figure figcaption::after {
+	position: absolute;
+	top: 30px;
+	right: 30px;
+	bottom: 30px;
+	left: 30px;
+	content: '';
+	opacity: 0;
+	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	transition: opacity 0.35s, transform 0.35s;
+}
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].bubba figure figcaption::before {
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #fff;
+	-webkit-transform: scale(0,1);
+	transform: scale(0,1);
+}
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].bubba figure figcaption::after {
+	border-right: 1px solid #fff;
+	border-left: 1px solid #fff;
+	-webkit-transform: scale(1,0);
+	transform: scale(1,0);
+}
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].bubba figure h2 {
+	padding-top: 50px;
+	-webkit-transition: -webkit-transform 0.35s;
+	transition: transform 0.35s;
+	-webkit-transform: translate3d(0,-20px,0);
+	transform: translate3d(0,-20px,0);
+}
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].bubba figure p {
+	padding: 10px 2.5em;
+	opacity: 0;
+	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	transition: opacity 0.35s, transform 0.35s;
+	-webkit-transform: translate3d(0,20px,0);
+	transform: translate3d(0,20px,0);
+	height: 50px
+}
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].bubba figure:hover figcaption::before,
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].bubba figure:hover figcaption::after {
+	opacity: 1;
+	-webkit-transform: scale(1);
+	transform: scale(1);
+}
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].bubba figure:hover h2,
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].bubba figure:hover p {
+	opacity: 1;
+	-webkit-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);
+}
+
+
+
+/*-----------------*/
+/***** Steve *****/
+/*-----------------*/
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].steve figure {
+	z-index: auto;
+	overflow: visible;
+	background: #000;
+}
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].steve figure:before,
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].steve figure h2:before {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	content: '';
+	-webkit-transition: opacity 0.35s;
+	transition: opacity 0.35s;
+}
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].steve figure:before {
+	box-shadow: 0 3px 30px rgba(0,0,0,0.8);
+	opacity: 0;
+}
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].steve figure figcaption {
+	z-index: 1;
+}
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].steve figure img {
+	opacity: 1;
+	-webkit-transition: -webkit-transform 0.35s;
+	transition: transform 0.35s;
+	-webkit-transform: perspective(1000px) translate3d(0,0,0);
+	transform: perspective(1000px) translate3d(0,0,0);
+}
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].steve figure figcaption h2 {
+	background: $contrast-color-portfolio;
+	color: $primary-color-portfolio;
+}
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].steve .fl-post-grid-text a,
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].steve h2 a{
+		color: $primary-color-portfolio;;
+}
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].steve figure figcaption p{
+	background: $contrast-color-portfolio;
+	color: $primary-color-portfolio;
+}
+
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].steve figure figcaption h2 {
+	position: relative;
+	margin-top: 2em;
+	padding: 0.25em;
+}
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].steve figure figcaption h2:before {
+	box-shadow: 0 1px 10px rgba(0,0,0,0.5);
+}
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].steve figure figcaption p {
+	margin-top: 1em;
+	padding: 0.5em;
+	font-weight: 800;
+	opacity: 0;
+	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	transition: opacity 0.35s, transform 0.35s;
+	-webkit-transform: scale3d(0.9,0.9,1);
+	transform: scale3d(0.9,0.9,1);
+}
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].steve figure:hover:before {
+	opacity: 1;
+}
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].steve figure:hover img {
+	-webkit-transform: perspective(1000px) translate3d(0,0,21px);
+	transform: perspective(1000px) translate3d(0,0,21px);
+}
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].steve figure:hover h2:before {
+	opacity: 0;
+}
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].steve figure:hover p {
+	opacity: 1;
+	-webkit-transform: scale3d(1,1,1);
+	transform: scale3d(1,1,1);
+}
+
+/*---------------*/
+/***** Romeo *****/
+/*---------------*/
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].romeo figure {
+	-webkit-perspective: 1000px;
+	perspective: 1000px;
+}
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].romeo figure img {
+	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	transition: opacity 0.35s, transform 0.35s;
+	-webkit-transform: translate3d(0,0,300px);
+	transform: translate3d(0,0,300px);
+}
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].romeo figure:hover img {
+	opacity: 0.6;
+	-webkit-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);
+}
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].romeo figure figcaption::before,
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].romeo figure figcaption::after {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 80%;
+	height: 1px;
+	background: #fff;
+	content: '';
+	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	transition: opacity 0.35s, transform 0.35s;
+	-webkit-transform: translate3d(-50%,-50%,0);
+	transform: translate3d(-50%,-50%,0);
+}
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].romeo figure:hover figcaption::before {
+	opacity: 0.5;
+	-webkit-transform: translate3d(-50%,-50%,0) rotate(45deg);
+	transform: translate3d(-50%,-50%,0) rotate(45deg);
+}
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].romeo figure:hover figcaption::after {
+	opacity: 0.5;
+	-webkit-transform: translate3d(-50%,-50%,0) rotate(-45deg);
+	transform: translate3d(-50%,-50%,0) rotate(-45deg);
+}
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].romeo figure h2,
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].romeo figure p {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	width: 100%;
+	-webkit-transition: -webkit-transform 0.35s;
+	transition: transform 0.35s;
+}
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].romeo figure h2 {
+	-webkit-transform: translate3d(0,-50%,0) translate3d(0,-150%,0);
+	transform: translate3d(0,-50%,0) translate3d(0,-150%,0);
+}
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].romeo figure p {
+	padding: 0.25em 2em;
+	height: 50px;
+	-webkit-transform: translate3d(0,-50%,0) translate3d(0,150%,0);
+	transform: translate3d(0,-50%,0) translate3d(0,150%,0);
+}
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].romeo figure:hover h2 {
+	-webkit-transform: translate3d(0,-50%,0) translate3d(0,-100%,0);
+	transform: translate3d(0,-50%,0) translate3d(0,-100%,0);
+}
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].romeo figure:hover p {
+	-webkit-transform: translate3d(0,-50%,0) translate3d(0,100%,0);
+	transform: translate3d(0,-50%,0) translate3d(0,100%,0);
+}
+
+/*---------------*/
+/***** Milo *****/
+/*---------------*/
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].milo figure {
+	background: #2e5d5a;
+}
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].milo figure img {
+	max-width: none;
+	width: -webkit-calc(100% + 60px);
+	width: calc(100% + 60px);
+	opacity: 1;
+	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	transition: opacity 0.35s, transform 0.35s;
+	-webkit-transform: translate3d(-30px,0,0) scale(1.12);
+	transform: translate3d(-30px,0,0) scale(1.12);
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].milo figure:hover img {
+	opacity: 0.5;
+	-webkit-transform: translate3d(0,0,0) scale(1);
+	transform: translate3d(0,0,0) scale(1);
+}
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].milo figure h2 {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	padding: 1em 1.2em;
+}
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].milo figure p {
+	padding: 0 10px 0 0;
+	width: 50%;
+	border-right: 1px solid #fff;
+	text-align: right;
+	opacity: 0;
+	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	transition: opacity 0.35s, transform 0.35s;
+	-webkit-transform: translate3d(-40px,0,0);
+	transform: translate3d(-40px,0,0);
+}
+
+.fl-module-post-grid .fl-module-content [class*="fl-post-"].milo figure:hover p {
+	opacity: 1;
+	-webkit-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);
+}
