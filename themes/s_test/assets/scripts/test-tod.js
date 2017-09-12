@@ -1,5 +1,5 @@
 
-
+// TEST
 
 //var elem = document.querySelector('#isotope-list');
 jQuery('#isotope-list').isotope({
@@ -317,6 +317,3 @@ jQuery(document).ready(function(){
   });
  
 });
-
-
-
