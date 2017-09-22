@@ -75,6 +75,9 @@ body.rtl .fl-module-content-slider .bx-viewport {
 .fl-slide-mobile-photo {
 	display: none;
 }
+.fl-slide-mobile-photo-img  {
+	width: 100%;
+}
 
 /* Title and Text Position */
 .fl-slide-content {
@@ -142,4 +145,21 @@ body.rtl .fl-module-content-slider .bx-viewport {
 }
 .fl-content-slider-navigation path{ 
 	fill: #fff;
+}
+.fl-content-slider-navigation a.disabled,
+.bx-controls a.disabled {
+	pointer-events: none;
+}
+
+/* Slider controls fixes */
+.bx-wrapper .bx-controls:not(.bx-has-pager) {
+	height: 30px;
+}
+.bx-wrapper .bx-controls:not(.bx-has-pager) .bx-controls-auto {
+	bottom: 0;
+}
+
+/* IE Fixes */
+.fl-builder-ie-11 .fl-content-slider-navigation {
+	z-index: 55;
 }

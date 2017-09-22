@@ -1,5 +1,35 @@
 (function($) {
 
+	window.onLoadFLReCaptcha = function() {
+		var reCaptchaFields = $( '.fl-grecaptcha' ),
+			widgetID;
+
+		if ( reCaptchaFields.length > 0 ) {
+			reCaptchaFields.each(function(){
+				var self 		= $( this ),
+				 	attrWidget 	= self.attr('data-widgetid');
+
+				// Avoid re-rendering as it's throwing API error
+				if ( (typeof attrWidget !== typeof undefined && attrWidget !== false) ) {
+					return;
+				}
+				else {
+					widgetID = grecaptcha.render( $(this).attr('id'), { 
+						sitekey : self.data( 'sitekey' ),
+						theme	: 'light',
+						callback: function( response ){
+							if ( response != '' ) {
+								self.attr( 'data-fl-grecaptcha-response', response );
+							}							
+						}
+					});
+					
+					self.attr( 'data-widgetid', widgetID );					
+				}							
+			});
+		}
+	};
+
 	FLBuilderContactForm = function( settings )
 	{
 		this.settings	= settings;
@@ -26,6 +56,9 @@
 				phone			= $(this.nodeClass + ' .fl-phone input'),
 				subject	  		= $(this.nodeClass + ' .fl-subject input'),
 				message	  		= $(this.nodeClass + ' .fl-message textarea'),
+				reCaptchaField  = $('#'+ this.settings.id + '-fl-grecaptcha'),
+				reCaptchaValue	= reCaptchaField.data( 'fl-grecaptcha-response' ),
+				ajaxData 		= null,
 				ajaxurl	  		= FLBuilderLayoutConfig.paths.wpAjaxUrl,
 				email_regex 	= /\S+@\S+\.\S+/,
 				isValid	  		= true,
@@ -93,6 +126,16 @@
 			else if (message.parent().hasClass('fl-error')) {
 				message.parent().removeClass('fl-error');
 			}
+
+			// validate if reCAPTCHA is enabled and checked
+			if ( reCaptchaField.length > 0 ) {
+				if ( 'undefined' === typeof reCaptchaValue || reCaptchaValue === false ) {
+					isValid = false;
+					reCaptchaField.parent().addClass( 'fl-error' );
+				} else {
+					reCaptchaField.parent().removeClass('fl-error');
+				}
+			}
 			
 			// end if we're invalid, otherwise go on..
 			if (!isValid) {
@@ -102,9 +145,8 @@
 			
 				// disable send button
 				submit.addClass('fl-disabled');
-				
-				// post the form data
-				$.post(ajaxurl, {
+
+				ajaxData = {
 					action				: 'fl_builder_email',
 					name				: name.val(),
 					subject				: subject.val(),
@@ -115,7 +157,14 @@
 					template_id 		: templateId,
 					template_node_id 	: templateNodeId,
 					node_id 			: nodeId
-				}, $.proxy( this._submitComplete, this ) );
+				}
+
+				if ( reCaptchaValue ) {
+					ajaxData.recaptcha_response	= reCaptchaValue;
+				}
+				
+				// post the form data
+				$.post( ajaxurl, ajaxData, $.proxy( this._submitComplete, this ) );
 			}
 		},
 		
@@ -125,7 +174,7 @@
 				noMessage 	= $( this.nodeClass + ' .fl-success-none' );
 			
 			// On success show the success message
-			if (response === '1') {
+			if (typeof response.error !== 'undefined' && response.error === false) {
 				
 				$( this.nodeClass + ' .fl-send-error' ).fadeOut();
 				
@@ -143,6 +192,9 @@
 			// On failure show fail message and re-enable the send button
 			else {
 				$(this.nodeClass + ' .fl-button').removeClass('fl-disabled');
+				if ( typeof response.message !== 'undefined' ) {
+					$(this.nodeClass + ' .fl-send-error').html(response.message);
+				}
 				$(this.nodeClass + ' .fl-send-error').fadeIn();
 				return false;
 			}

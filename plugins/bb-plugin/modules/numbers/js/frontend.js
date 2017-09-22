@@ -20,28 +20,14 @@ var FLBuilderNumber;
 		this.delay 				 = settings.delay;
 		this.breakPoints         = settings.breakPoints;
 		this.currentBrowserWidth = $( window ).width();
+		this.animated            = false;
+		this.format 			 = settings.format;
 
 		// initialize the menu 
 		this._initNumber();
 		
 	};
 	
-	FLBuilderNumber.addCommas = function( n ){
-
-		var rgx = /(\d+)(\d{3})/;
-
-		n += '';
-		x  = n.split('.');
-		x1 = x[0];
-		x2 = x.length > 1 ? '.' + x[1] : '';
-		
-		while (rgx.test(x1)) {
-			x1 = x1.replace(rgx, '$1' + ',' + '$2');
-		}
-		
-		return x1 + x2;
-	};
-
 	FLBuilderNumber.prototype = {
 		nodeClass               : '',
 		wrapperClass            : '',
@@ -51,6 +37,7 @@ var FLBuilderNumber;
 		max 	                : 0,
 		speed 					: 0,
 		delay 					: 0,
+		format 					: {},
 
 		_initNumber: function(){
 
@@ -58,7 +45,7 @@ var FLBuilderNumber;
 
 			if( typeof jQuery.fn.waypoint !== 'undefined' ) {
 				$( this.wrapperClass ).waypoint({
-					offset: '80%',
+					offset: FLBuilderLayoutConfig.waypoint.offset + '%',
 					triggerOnce: true,
 					handler: function( direction ){
 						self._initCount();
@@ -98,19 +85,23 @@ var FLBuilderNumber;
 
 			var $number = $( this.wrapperClass ).find( '.fl-number-string' ),
 				$string = $number.find( '.fl-number-int' ),
-				current = 0;
+				current = 0,
+				self    = this;
 
-
-		    $string.prop( 'Counter',0 ).animate({
-		        Counter: this.number
-		    }, {
-		        duration: this.speed,
-		        easing: 'swing',
-		        step: function ( now ) {
-		            $string.text( FLBuilderNumber.addCommas( Math.ceil( now ) ) );
-		        }
-		    });
-
+			if ( ! this.animated ) {
+			    $string.prop( 'Counter',0 ).animate({
+			        Counter: this.number
+			    }, {
+			        duration: this.speed,
+			        easing: 'swing',
+			        step: function ( now, fx ) {
+			        	$string.text( self._formatNumber( Math.ceil(now) ) );
+			        },
+			        complete: function() {
+			        	self.animated = true;
+			        }
+			    });
+			}
 		},
 
 		_triggerCircle: function(){
@@ -156,8 +147,23 @@ var FLBuilderNumber;
 		        easing: 'swing'
 		    });
 
-		}
-	
+		},
+
+		_formatNumber: function( n ){
+			var rgx	= /(\d+)(\d{3})/;
+
+            n += '';
+            x  = n.split('.');
+			x1 = x[0];
+			x2 = x.length > 1 ? parseFloat(parseFloat('.' + x[1]).toFixed(2)) : '';
+			x2 = x2 ? this.format.decimal + x2.toString().split('.').pop() : '';
+			
+			while (rgx.test(x1)) {
+				x1 = x1.replace(rgx, '$1' + this.format.thousands_sep + '$2');
+			}
+			
+			return x1 + x2;
+		},
 	};
 		
 })(jQuery);

@@ -63,12 +63,15 @@
 		 *
 		 * @since 1.2.3
 		 * @method resize
-		 */ 
+		 */
 		resize: function()
 		{
+			if ( ! $(this.wrapSelector).length ) {
+				return;
+			}
 			var winWidth    = $(window).width(),
 				wrap        = $(this.wrapSelector),
-				wrapWidth   = wrap.width(),
+				wrapWidth   = wrap[0].getBoundingClientRect().width,
 				numCols     = winWidth > 480 ? Math.ceil(wrapWidth/this.itemWidth) : 1,
 				items       = wrap.find(this.itemSelector),
 				itemWidth   = wrapWidth/numCols,

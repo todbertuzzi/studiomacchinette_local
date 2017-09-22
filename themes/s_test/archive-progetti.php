@@ -1,5 +1,10 @@
 <?php get_template_part('templates/page', 'header'); ?>
 
+
+<?php //echo do_shortcode('[fl_builder_insert_layout slug="riga_sm"]'); ?>
+ 
+
+
 <?php if (!have_posts()) : ?>
   <div class="alert alert-warning">
     <?php _e('Sorry, no results were found.', 'sage'); ?>

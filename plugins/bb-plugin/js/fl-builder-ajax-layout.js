@@ -10,7 +10,7 @@
 	{
 		this._data 					= $.extend( {}, this._defaults, typeof data == 'string' ? JSON.parse( data ) : data );
 		this._callback				= callback;
-		this._post    				= $('#fl-post-id').val();
+		this._post    				= FLBuilderConfig.postId;
 		this._head    				= $('head').eq(0);
 		this._body    				= $('body').eq(0);
 		
@@ -34,7 +34,7 @@
 				}
 				else {
 					this._oldScriptsStyles 	= $( '.fl-builder-node-scripts-styles[data-node="' + this._data.nodeId + '"]' );
-					this._content 			= $( '.fl-node-' + this._data.nodeId );
+					this._content 			= $( '.fl-node-' + this._data.nodeId ).eq(0);
 				}
 			}
 		}
@@ -374,19 +374,22 @@
 				
 				// If data.nodeParent is present, we have a new node.
 				if ( this._data.nodeParent ) {
-					
+			
 					// Get sibling rows.
 					if ( this._data.nodeParent.hasClass( 'fl-builder-content' ) ) {
 						siblings = this._data.nodeParent.find( '.fl-row' );
 					}
 					// Get sibling column groups.
 					else if ( this._data.nodeParent.hasClass( 'fl-row-content' ) ) {
-						siblings = this._data.nodeParent.find( '.fl-col-group' );
+						siblings = this._data.nodeParent.find( ' > .fl-col-group' );
 					}
 					// Get sibling modules.
 					else {
-						siblings = this._data.nodeParent.find( '.fl-module' );
+						siblings = this._data.nodeParent.find( ' > .fl-col-group, > .fl-module' );
 					}
+					
+					// Filter out any clones created by duplicating.
+					siblings = siblings.filter( ':not(.fl-builder-node-clone)' );
 					
 					// Add the new node.
 					if ( 0 === siblings.length || siblings.length == this._data.nodePosition ) {
@@ -394,6 +397,11 @@
 					}
 					else {
 						siblings.eq( this._data.nodePosition ).before( this._data.html );
+					}
+					
+					// Remove node loading placeholder in case we have one.
+					if ( this._data.nodeId ) {
+						FLBuilder._removeNodeLoadingPlaceholder( $( '.fl-node-' + this._data.nodeId ) );
 					}
 				}
 				// We must be refreshing an existing node.
@@ -542,10 +550,12 @@
 		{
 			FLBuilder._setupEmptyLayout();
 			FLBuilder._highlightEmptyCols();
+			FLBuilder._initDropTargets();
 			FLBuilder._initSortables();
 			FLBuilder._resizeLayout();
 			FLBuilder._initMediaElements();
 			FLBuilderLayout.init();
+			FLBuilderResponsiveEditing.refreshPreview();
 			
 			this._body.height( 'auto' );
 		}
